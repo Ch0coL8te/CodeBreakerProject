@@ -41,10 +41,16 @@ function getResults(input) {
   }
   html += '</div></div>';
   document.getElementById('results').innerHTML += html;
+  // Если ввод совпадает с ответом, то возвращаяется true
+  if (input == answer.value) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function setHiddenFields() {
-      answer.value = Math.floor(Math.random() * 9999).toString(), // Округляем до целого числа и преобразуем в строку
+      answer.value = Math.floor(Math.random() * 10000).toString(); // Округляем до целого числа и преобразуем в строку
       attempt.value = 0;
 
   while (answer.value.length < 4) { // Если answer не 4-х значное число - дабавляем 0 перед ним, пока не станет 4х значным
@@ -53,7 +59,22 @@ function setHiddenFields() {
 }
 
 function setMessage(message) {
-  document.querySelector("#message").innerHTML(message);
+  document.getElementById('message').innerHTML = message;
+}
+
+function showAnswer(success) {
+  let code = document.getElementById('code');
+  if (success) {
+    code.className += ' success';
+  } else {
+    code.className += ' faulure';
+  }
+  code.innerHTML = answer.value;
+}
+
+function showReplay() {
+  document.getElementById('guessing-div').style.display = none;
+  document.getElementById('replay-div').style.display = block;
 }
 
 function validateInput(input) {
