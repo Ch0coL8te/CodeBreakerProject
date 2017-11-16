@@ -69,7 +69,7 @@ function showAnswer(success) {
 }
 
 function showReplay() {
-    document.getElementById('guessing-div').style.diplay = "none";
+    document.getElementById('guessing-div').style.display = "none";
     document.getElementById('replay-div').style.display = "block";
 }
 
