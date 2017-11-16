@@ -10,6 +10,18 @@ function guess() {
         return;
     }
     attempt.value++;
+
+    if (getResults(input.value)) {
+        setMessage("You Win! :)");
+        showAnswer(true);
+        showReplay();
+    } else if (attempt.value >= 10) {
+        setMessage("You Lose! :(");
+        showAnswer(false);
+        showReplay();
+    } else {
+        setMessage("Incorrect, try again.");
+    }
 }
 
 function getResults(input) {
@@ -25,6 +37,13 @@ function getResults(input) {
     }
     html += '</div></div>';
     document.getElementById('results').innerHTML += html;
+
+    if (input == answer.value) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function setHiddenFields() {
@@ -37,6 +56,21 @@ function setHiddenFields() {
 
 function setMessage(message) {
     document.getElementById('message').innerHTML = message;
+}
+
+function showAnswer(success) {
+    let code = document.getElementById('code');
+    if (success) {
+        code.className += " success";
+    } else {
+        code.className += " failure";
+    }
+    code.innerHTML = answer.value;
+}
+
+function showReplay() {
+    document.getElementById('guessing-div').style.diplay = "none";
+    document.getElementById('replay-div').style.display = "block";
 }
 
 function validateInput(input) {
