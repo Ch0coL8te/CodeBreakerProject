@@ -48,8 +48,8 @@ function getResults(input) {
 
 function setHiddenFields() {
     answer.value = Math.floor(Math.random() * 10000).toString();
-    while (anser.value.length < 4) {
-        answer.value = "0" + answe.value;
+    while (answer.value.length < 4) {
+        answer.value = "0" + answer.value;
     }
     attempt.value = 0;
 }
