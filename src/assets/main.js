@@ -28,7 +28,7 @@ function guess() {
 }
 
 function getResults(input) {
-  // Настрйока показа иконок к зависимости от успеха
+  // Настройка показа иконок к зависимости от успеха
   let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   for (var i = 0; i < input.length; i++) {
     if (input.charAt(i) == answer.value.charAt(i)) {
